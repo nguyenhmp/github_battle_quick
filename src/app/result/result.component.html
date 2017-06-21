@@ -1,0 +1,18 @@
+<div>
+  <h1>first place</h1>
+  <h3>{{winner.login}}</h3> 
+  <h3>{{winner.score}}</h3>    
+</div>
+
+<div>
+  <h1>second place</h1>
+  <h3>{{loser.login}}</h3>
+  <h3>{{loser.score}}</h3>  
+</div>
+
+<div>
+  <img src="{{winner.avatar_url}}" alt="here">
+  <h3>{{winner.login}}</h3>
+</div>
+
+<button routerLink='/' (click)="reset()">Reset</button>

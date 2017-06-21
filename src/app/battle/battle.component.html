@@ -1,0 +1,31 @@
+<fieldset>
+  <div *ngIf="!users[0];else userContent1">
+    <legend>{{userName1}}</legend>  
+    <form (submit)="findUser()" >
+      <input type="text" name="userName1" [(ngModel)]="userName1" value="">
+      <input type="submit" value="findUser">
+    </form>
+  </div>
+  <ng-template #userContent1>
+    <legend>{{users[0].login}}</legend>
+    <img src="{{users[0].avatar_url}}" alt="user picture">
+    {{users[0] | json}}
+  </ng-template>
+</fieldset>
+
+<fieldset>
+  <div *ngIf="!users[1];else userContent2">
+    <legend>{{userName2}}</legend>
+    <form (submit)="findUser()">
+      <input type="text" name="userName2" [(ngModel)]="userName2" value="">
+        <input type="submit" value="findUser">
+    </form>
+  </div>
+  <ng-template #userContent2>
+    <legend>{{users[1].login}}</legend>
+    <img src="{{users[1].avatar_url}}" alt="user picture">
+    {{users[1] | json}}
+  </ng-template>
+</fieldset>
+
+<button *ngIf="users[0] && users[1]" (click)="battle(users[0], users[1])">LETS BATTLE</button>
